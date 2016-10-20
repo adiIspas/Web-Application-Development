@@ -24,5 +24,6 @@ public partial class home : System.Web.UI.Page
     protected void CheckBox2_CheckedChanged1(object sender, EventArgs e)
     {
         TextBox1.Text = "Am apasat";
+        Label1.Text = "Checked pressed!";
     }
 }
