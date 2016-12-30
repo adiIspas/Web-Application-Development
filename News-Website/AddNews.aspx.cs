@@ -53,4 +53,33 @@ public partial class AddNews : System.Web.UI.Page
         conn.Close();
         return false;
     }
+
+    protected void publica_Click(object sender, EventArgs e)
+    {
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+        string txt = "insert into Stire(titlu,categorie,descriere,imagine,continut,data) values (@titlu,@categorie,@descriere,@imagine,@continut,@data)";
+        // deschiderea conexiunii. Poate arunca Exceptie daca nu reuseste
+        conn.Open();
+        //crearea comenzi SQL
+        SqlCommand cmd = new SqlCommand(txt, conn);
+        //adaugarea parametrilor si definirea tipului lor
+        cmd.Parameters.Add(new SqlParameter("@titlu", TypeCode.String));
+        cmd.Parameters.Add(new SqlParameter("@categorie", TypeCode.String));
+        cmd.Parameters.Add(new SqlParameter("@descriere", TypeCode.String));
+        cmd.Parameters.Add(new SqlParameter("@imagine", TypeCode.String));
+        cmd.Parameters.Add(new SqlParameter("@continut", TypeCode.String));
+        cmd.Parameters.Add(new SqlParameter("@data", TypeCode.DateTime));
+        cmd.Parameters["@titlu"].Value = titlu.Text;
+        cmd.Parameters["@categorie"].Value = categorie.SelectedValue;
+        cmd.Parameters["@descriere"].Value = descriere.Text;
+        cmd.Parameters["@imagine"].Value = imagine.FileName;
+        cmd.Parameters["@continut"].Value = continut.Text;
+        cmd.Parameters["@data"].Value = DateTime.Now;
+
+        // executia si inchiderea conexiunii
+        cmd.ExecuteNonQuery();
+        conn.Close();
+        //redirectam catre pagina de log in
+        Response.Redirect("Index.aspx", true);
+    }
 }

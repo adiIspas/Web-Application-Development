@@ -62,7 +62,7 @@
         <tr>
             <td>
 
-                <asp:Button ID="publica" runat="server" Text="Publica stirea" />
+                <asp:Button ID="publica" runat="server" Text="Publica stirea" OnClick="publica_Click" />
 
             </td>
         </tr>
