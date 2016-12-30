@@ -26,7 +26,7 @@ public partial class NewUser : System.Web.UI.Page
         if (!string.IsNullOrEmpty(username.Text) && !string.IsNullOrEmpty(parola.Text) && !string.IsNullOrEmpty(email.Text))
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            string txt = "insert into Utilizator(name,password,email) values (@Name,@Pass,@Email)";
+            string txt = "insert into Utilizator(name,password,email,rang) values (@Name,@Pass,@Email,@Rang)";
             // deschiderea conexiunii. Poate arunca Exceptie daca nu reuseste
             conn.Open();
             //crearea comenzi SQL
@@ -35,9 +35,11 @@ public partial class NewUser : System.Web.UI.Page
             cmd.Parameters.Add(new SqlParameter("@Name", TypeCode.String));
             cmd.Parameters.Add(new SqlParameter("@Pass", TypeCode.String));
             cmd.Parameters.Add(new SqlParameter("@Email", TypeCode.String));
+            cmd.Parameters.Add(new SqlParameter("@Rang", TypeCode.String));
             cmd.Parameters["@Name"].Value = username.Text;
             cmd.Parameters["@Pass"].Value = HashPassword(parola.Text);
             cmd.Parameters["@Email"].Value = email.Text;
+            cmd.Parameters["@Rang"].Value = "usr";
             // executia si inchiderea conexiunii
             cmd.ExecuteNonQuery();
             conn.Close();
