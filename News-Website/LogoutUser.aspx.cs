@@ -15,8 +15,12 @@ public partial class LogoutUser : System.Web.UI.Page
     {
         this.Title = "Logout Page - News Website";
 
-        if (CheckLogin() == false)
+        if (!CheckLogin())
             Response.Redirect("LoginUser.aspx", true);
+        else
+        {
+            username.Text = (string)Session["user"];
+        }
     }
 
     protected void Button2_Click(object sender, EventArgs e)
