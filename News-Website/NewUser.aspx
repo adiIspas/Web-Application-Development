@@ -25,17 +25,15 @@
             <td style="width: 99px">Email</td>
             <td>
                 <asp:TextBox ID="email" runat="server"></asp:TextBox>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="email" ErrorMessage="Adresa de email invalida!" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="email" ErrorMessage="Adresa de email invalida!" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="email" Display="Dynamic" ErrorMessage="Adresa de email lipsa!"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
            <td style="width: 99px">
-               <asp:Button ID="submit" runat="server" Text="Creaza cont" Width="102px" />
+               <asp:Button ID="submit" runat="server" Text="Creaza cont" Width="102px" OnClick="submit_Click" />
             </td> 
         </tr>
-    </table>
-       
-   
+    </table> 
 </asp:Content>
 
