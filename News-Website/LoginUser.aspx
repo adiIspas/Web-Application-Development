@@ -23,7 +23,7 @@
         <tr>
            <td style="width: 114px">
                
-               <asp:Button ID="submit" runat="server" Text="Creaza cont" Width="102px" OnClick="submit_Click" />
+               <asp:Button ID="submit" runat="server" Text="Logare" Width="102px" OnClick="submit_Click" />
             </td> 
             <td>
                 <asp:Label ID="erori" runat="server" Text=""></asp:Label>

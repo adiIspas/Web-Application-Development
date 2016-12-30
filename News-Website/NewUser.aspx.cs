@@ -65,7 +65,7 @@ public partial class NewUser : System.Web.UI.Page
         if (Session["user"] == null || string.IsNullOrEmpty(Session["user"].ToString()))
             return false;
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-        string txt = "SELECT password FROM User WHERE (name=@Name)";
+        string txt = "SELECT password FROM Utilizator WHERE (name=@Name)";
         // deschiderea conexiunii. Poate arunca Exceptie daca nu reuseste
         conn.Open();
         //crearea comenzi SQL
@@ -75,10 +75,15 @@ public partial class NewUser : System.Web.UI.Page
         cmd.Parameters["@Name"].Value = Session["user"].ToString();
         //scalar returneaza o singura valoare
         SqlDataReader reader = cmd.ExecuteReader();
-        if (reader.Read() && Session["pass"].ToString() == (string)reader[0])
+        if (reader.Read())
         {
-            conn.Close();
-            return true;
+            string hashpass = (string)reader[0];
+            hashpass = hashpass.Trim();
+            if (Session["pass"].ToString() == hashpass)
+            {
+                conn.Close();
+                return true;
+            }
         }
         conn.Close();
         return false;
