@@ -13,7 +13,7 @@ public partial class LogoutUser : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Title = "Logout Page - News Website";
+        this.Title = "Deconectare - News Website";
 
         if (!CheckLogin())
             Response.Redirect("LoginUser.aspx", true);

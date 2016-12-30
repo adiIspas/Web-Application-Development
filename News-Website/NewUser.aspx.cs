@@ -13,7 +13,7 @@ public partial class NewUser : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        this.Title = "Creaza cont - News Website";
         //daca userul deja este logat el va ajunge pe pagina members
         if (CheckLogin())
             Response.Redirect("Index.aspx", true);
