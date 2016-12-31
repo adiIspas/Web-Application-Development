@@ -5,19 +5,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Home - News</title>
-    <h1>Bun venit pe site-ul nostru!</h1>
+    <h1>Bun venit pe site-ul nostru! 
+    </h1>
     <br />
     <h3>Site realizat de Adrian Ispas</h3>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
-    <hr />
+
+    
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
+        <asp:Button ID="login" runat="server" Text="Logare" Style="margin-left:auto;" OnClick="login_Click"/>
+        <asp:Button ID="logout" runat="server" Text="Delogare" OnClick="logout_Click" />
+        <asp:Button ID="register" runat="server" Text="Inregistrare" OnClick="register_Click" />
+        <br />
+        <hr />
+
         <asp:ContentPlaceHolder id="body" runat="server">
         </asp:ContentPlaceHolder>
     </div>
     </form>
+    
 </body>
 </html>

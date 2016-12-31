@@ -44,7 +44,7 @@ public partial class LoginUser : System.Web.UI.Page
                 Session["pass"] = HashPassword(parola.Text);
                 Session["rang"] = rang;
                 conn.Close();
-                Response.Redirect("Index.aspx");
+                Response.Redirect("UserPage.aspx");
             }
             else
             {
