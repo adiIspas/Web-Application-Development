@@ -28,4 +28,9 @@ public partial class Header : System.Web.UI.MasterPage
     {
         Response.Redirect("NewUser.aspx");
     }
+
+    protected void my_account(object sender, EventArgs e)
+    {
+        Response.Redirect("UserPage.aspx");
+    }
 }

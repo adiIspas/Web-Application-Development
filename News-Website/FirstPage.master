@@ -20,6 +20,7 @@
         <asp:Button ID="login" runat="server" Text="Logare" Style="margin-left:auto;" OnClick="login_Click"/>
         <asp:Button ID="logout" runat="server" Text="Delogare" OnClick="logout_Click" />
         <asp:Button ID="register" runat="server" Text="Inregistrare" OnClick="register_Click" />
+        <asp:Button ID="cont" runat="server" Text="Contul meu" OnClick="my_account" />
         <br />
         <hr />
 
