@@ -32,9 +32,15 @@
             </td>
 
             <td>
-                <asp:GridView ID="last_news" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Stiri" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="last_news_SelectedIndexChanged" HorizontalAlign="Right">
+                <asp:GridView ID="last_news" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Stiri" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="last_news_SelectedIndexChanged" HorizontalAlign="Right" AutoGenerateColumns="False">
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
+                        <asp:BoundField DataField="titlu" HeaderText="titlu" SortExpression="titlu" />
+                        <asp:BoundField DataField="categorie" HeaderText="categorie" SortExpression="categorie" />
+                        <asp:BoundField DataField="descriere" HeaderText="descriere" SortExpression="descriere" />
+                        <asp:BoundField DataField="imagine" HeaderText="imagine" SortExpression="imagine" />
+                        <asp:BoundField DataField="continut" HeaderText="continut" SortExpression="continut" />
+                        <asp:BoundField DataField="data" HeaderText="data" SortExpression="data" />
                     </Columns>
                     <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
                     <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
@@ -54,7 +60,7 @@
     
     
     
-    <asp:SqlDataSource ID="Stiri" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [titlu], [categorie], [descriere], [imagine], [continut], [data] FROM [Stire]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="Stiri" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [titlu], [categorie], [descriere], [imagine], [continut], [data] FROM [Stire] ORDER BY [data] DESC"></asp:SqlDataSource>
 
    
 
