@@ -7,8 +7,6 @@
     <title>Home - News</title>
     <h1>Bun venit pe site-ul nostru! 
     </h1>
-    <br />
-    <h3>Site realizat de Adrian Ispas</h3>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 

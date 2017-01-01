@@ -9,17 +9,20 @@ public partial class Index : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        copyright.Text = "Site realizat de Adrian Ispas, Grupa 343 " + " © " + DateTime.Now.Year;
     }
 
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    protected void last_news_SelectedIndexChanged(object sender, EventArgs e)
     {
         GridViewRow row = last_news.SelectedRow;
+        Session["stire"] = row.Cells[1].Text;
+        Response.Redirect("NewsPage.aspx");
+    }
 
-        // Display the first name from the selected row.
-        // In this example, the third column (index 2) contains
-        // the first name.
-        test.Text = "You selected " + row.Cells[1].Text + ".";
-        //Response.Redirect("LogoutUser.aspx");
+    protected void categorii_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewRow row = categorii.SelectedRow;
+        Session["categorie"] = row.Cells[1].Text;
+        Response.Redirect("NewsFromCategory.aspx");
     }
 }

@@ -6,6 +6,8 @@
 <head runat="server">
     <title></title>
     <h1>News site - Adrian Ispas</h1>
+    <br />
+    <a href="Index.aspx">Acasa</a>
     <hr />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
