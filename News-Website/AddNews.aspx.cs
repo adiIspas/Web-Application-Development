@@ -74,8 +74,7 @@ public partial class AddNews : System.Web.UI.Page
         cmd.Parameters["@descriere"].Value = descriere.Text;
         cmd.Parameters["@imagine"].Value = imagine.FileName;
         cmd.Parameters["@continut"].Value = continut.Text;
-        var date = DateTime.Now;
-        cmd.Parameters["@data"].Value = date.Date;
+        cmd.Parameters["@data"].Value = DateTime.Now;
 
         // executia si inchiderea conexiunii
         cmd.ExecuteNonQuery();

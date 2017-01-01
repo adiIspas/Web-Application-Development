@@ -27,7 +27,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <asp:SqlDataSource ID="Stiri_Categorie" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [titlu], [categorie], [descriere], [imagine], [continut], [data] FROM [Stire] WHERE ([categorie] = @categorie)">
+    <asp:SqlDataSource ID="Stiri_Categorie" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [titlu], [categorie], [descriere], [imagine], [continut], [data] FROM [Stire] WHERE ([categorie] = @categorie) ORDER BY [data] DESC">
         <SelectParameters>
             <asp:ControlParameter ControlID="categorie" DefaultValue="Tehnologie" Name="categorie" PropertyName="Text" Type="String" />
         </SelectParameters>
