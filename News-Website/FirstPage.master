@@ -17,12 +17,12 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:Button ID="login" runat="server" Text="Logare" Style="margin-left:auto;" OnClick="login_Click"/>
-        <asp:Button ID="logout" runat="server" Text="Delogare" OnClick="logout_Click" />
-        <asp:Button ID="register" runat="server" Text="Inregistrare" OnClick="register_Click" />
-        <asp:Button ID="cont" runat="server" Text="Contul meu" OnClick="my_account" />
+        <asp:Button ID="login" runat="server" Text="Logare" Style="margin-left:auto;" OnClick="login_Click" CausesValidation="False"/>
+        <asp:Button ID="logout" runat="server" Text="Delogare" OnClick="logout_Click" CausesValidation="False" />
+        <asp:Button ID="register" runat="server" Text="Inregistrare" OnClick="register_Click" CausesValidation="False" />
+        <asp:Button ID="cont" runat="server" Text="Contul meu" OnClick="my_account" CausesValidation="False" />
 
-        <asp:Button ID="cauta" runat="server" Text="Cauta stiri pe site" OnClick="cauta_Click" />
+        <asp:Button ID="cauta" runat="server" Text="Cauta stiri pe site" OnClick="cauta_Click" CausesValidation="False" />
 
         <br />
         <hr />
