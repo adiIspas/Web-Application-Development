@@ -17,16 +17,6 @@
         </tr>
         <tr>
             <td>
-                Stire preluata?
-            </td>
-            <td>
-
-                <asp:CheckBox ID="stire_preluata" runat="server" OnCheckedChanged="stire_preluata_CheckedChanged" />
-
-            </td>
-        </tr>
-        <tr>
-            <td>
 
                 Categorie</td>
             <td>

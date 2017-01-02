@@ -5,7 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <table>
-      <tr>
+        <tr>
+          
         <th colspan="3">  
             <asp:Label ID="titlu" runat="server" Text="Titlu stire"></asp:Label>
          </th>
@@ -13,7 +14,7 @@
       <tr>
        
         
-          <td>
+          <td style="width: 65px">
 
               <asp:Label ID="categorie" runat="server" Text="Categorie"></asp:Label>
 
@@ -24,6 +25,11 @@
           
       </tr>
       <tr>
+          <td style="width: 65px">
+
+              <asp:Image ID="imagine" runat="server" Width="129px" />
+
+          </td>
         <td colspan="3" style="height: 283px"> 
             <asp:Label ID="continut" runat="server" Text="Continutul complet al stirei prezentate"></asp:Label>
           </td>

@@ -11,4 +11,11 @@ public partial class Search : System.Web.UI.Page
     {
 
     }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewRow row = GridView1.SelectedRow;
+        Session["stire"] = row.Cells[1].Text;
+        Response.Redirect("NewsPage.aspx");
+    }
 }

@@ -6,8 +6,9 @@
     <asp:TextBox ID="cuvinte" runat="server"></asp:TextBox>
     <asp:Button ID="cauta" runat="server" Text="Cauta ..." />
     <br />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display.">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>
+            <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="titlu" HeaderText="titlu" SortExpression="titlu" />
             <asp:BoundField DataField="categorie" HeaderText="categorie" SortExpression="categorie" />
             <asp:BoundField DataField="descriere" HeaderText="descriere" SortExpression="descriere" />

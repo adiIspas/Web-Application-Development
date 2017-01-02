@@ -26,10 +26,11 @@ public partial class NewsPage : System.Web.UI.Page
 
     private void LoadNews(string title)
     {
+        string path = "E:\\Web - Application - Development\\News - Website\\images\\";
         if (title == null)
             title = "";
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-        string txt = "SELECT titlu, categorie, data, continut FROM Stire WHERE (titlu=@Title)";
+        string txt = "SELECT titlu, categorie, imagine, data, continut FROM Stire WHERE (titlu=@Title)";
         // deschiderea conexiunii. Poate arunca Exceptie daca nu reuseste
         conn.Open();
         //crearea comenzi SQL
@@ -43,8 +44,10 @@ public partial class NewsPage : System.Web.UI.Page
         {
             titlu.Text = (string)reader[0];
             categorie.Text = (string)reader[1];
-            data.Text = (string)((DateTime)reader[2]).Date.ToString();
-            continut.Text = (string)reader[3];
+            data.Text = (string)((DateTime)reader[3]).Date.ToString();
+            continut.Text = (string)reader[4];
+            //imagine = Image.FromFile(path + (string)reader[2]);
+            imagine.ImageUrl = ("images\\" + (string)reader[2]).Replace(" ", "");
         }
         else
         {

@@ -76,6 +76,12 @@ public partial class AddNews : System.Web.UI.Page
         cmd.Parameters["@continut"].Value = continut.Text;
         cmd.Parameters["@data"].Value = DateTime.Now;
 
+        // Before attempting to save the file, verify
+        // that the FileUpload control contains a file.
+        if (imagine.HasFile)
+            // Call a helper method routine to save the file.
+            SaveFile(imagine.PostedFile);
+
         // executia si inchiderea conexiunii
         cmd.ExecuteNonQuery();
         conn.Close();
@@ -83,13 +89,52 @@ public partial class AddNews : System.Web.UI.Page
         Response.Redirect("Index.aspx", true);
     }
 
-    protected void stire_preluata_CheckedChanged(object sender, EventArgs e)
+    void SaveFile(HttpPostedFile file)
     {
-        CheckBox chk = sender as CheckBox;
-        if (chk.Checked)
-            Response.Redirect("Index.aspx");
+        // Specify the path to save the uploaded file to.
+        string savePath = "E:\\Web-Application-Development\\News-Website\\images\\";
+
+        // Get the name of the file to upload.
+        string fileName = imagine.FileName;
+
+        // Create the path and file name to check for duplicates.
+        string pathToCheck = savePath + fileName;
+
+        // Create a temporary file name to use for checking duplicates.
+        string tempfileName = "";
+
+        // Check to see if a file already exists with the
+        // same name as the file to upload.        
+        if (System.IO.File.Exists(pathToCheck))
+        {
+            int counter = 2;
+            while (System.IO.File.Exists(pathToCheck))
+            {
+                // if a file with this name already exists,
+                // prefix the filename with a number.
+                tempfileName = counter.ToString() + fileName;
+                pathToCheck = savePath + tempfileName;
+                counter++;
+            }
+
+            fileName = tempfileName;
+
+            // Notify the user that the file name was changed.
+            //UploadStatusLabel.Text = "A file with the same name already exists." +
+               // "<br />Your file was saved as " + fileName;
+        }
         else
-            this.continut.Text = "UnChecked";
+        {
+            // Notify the user that the file was saved successfully.
+           // UploadStatusLabel.Text = "Your file was uploaded successfully.";
+        }
+
+        // Append the name of the file to upload to the path.
+        savePath += fileName;
+
+        // Call the SaveAs method to save the uploaded
+        // file to the specified directory.
+        imagine.SaveAs(savePath);
 
     }
 }
