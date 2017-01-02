@@ -12,6 +12,7 @@
             <td>
                 <asp:TextBox ID="username" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="Nume utilizator lipsa!" ControlToValidate="username"></asp:RequiredFieldValidator>
+                <asp:Label ID="eroare" runat="server" Text=""></asp:Label>
              </td>
         </tr>
          <tr>

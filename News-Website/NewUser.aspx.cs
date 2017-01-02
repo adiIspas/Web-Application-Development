@@ -27,24 +27,44 @@ public partial class NewUser : System.Web.UI.Page
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             string txt = "insert into Utilizator(name,password,email,rang) values (@Name,@Pass,@Email,@Rang)";
+            string check = "select name from Utilizator WHERE (name=@Name)";
             // deschiderea conexiunii. Poate arunca Exceptie daca nu reuseste
             conn.Open();
             //crearea comenzi SQL
-            SqlCommand cmd = new SqlCommand(txt, conn);
-            //adaugarea parametrilor si definirea tipului lor
-            cmd.Parameters.Add(new SqlParameter("@Name", TypeCode.String));
-            cmd.Parameters.Add(new SqlParameter("@Pass", TypeCode.String));
-            cmd.Parameters.Add(new SqlParameter("@Email", TypeCode.String));
-            cmd.Parameters.Add(new SqlParameter("@Rang", TypeCode.String));
-            cmd.Parameters["@Name"].Value = username.Text;
-            cmd.Parameters["@Pass"].Value = HashPassword(parola.Text);
-            cmd.Parameters["@Email"].Value = email.Text;
-            cmd.Parameters["@Rang"].Value = "usr";
-            // executia si inchiderea conexiunii
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            //redirectam catre pagina de log in
-            Response.Redirect("Index.aspx", true);
+           
+            SqlCommand cmd_check = new SqlCommand(check, conn);
+
+            cmd_check.Parameters.Add(new SqlParameter("@Name", TypeCode.String));
+            cmd_check.Parameters["@Name"].Value = username.Text;
+
+            //scalar returneaza o singura valoare
+            SqlDataReader reader = cmd_check.ExecuteReader();
+            if (reader.Read())
+            {
+                eroare.Text = "Numele de utilizator exista";
+                conn.Close();
+            }
+            else
+            {
+                SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                SqlCommand cmd = new SqlCommand(txt, conn2);
+                conn2.Open();
+                eroare.Text = "";
+                //adaugarea parametrilor si definirea tipului lor
+                cmd.Parameters.Add(new SqlParameter("@Name", TypeCode.String));
+                cmd.Parameters.Add(new SqlParameter("@Pass", TypeCode.String));
+                cmd.Parameters.Add(new SqlParameter("@Email", TypeCode.String));
+                cmd.Parameters.Add(new SqlParameter("@Rang", TypeCode.String));
+                cmd.Parameters["@Name"].Value = username.Text;
+                cmd.Parameters["@Pass"].Value = HashPassword(parola.Text);
+                cmd.Parameters["@Email"].Value = email.Text;
+                cmd.Parameters["@Rang"].Value = "usr";
+                // executia si inchiderea conexiunii
+                cmd.ExecuteNonQuery();
+                conn2.Close();
+                //redirectam catre pagina de log in
+                Response.Redirect("Index.aspx", true);
+            }
         } 
     }
 

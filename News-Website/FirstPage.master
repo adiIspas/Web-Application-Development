@@ -19,6 +19,9 @@
         <asp:Button ID="logout" runat="server" Text="Delogare" OnClick="logout_Click" />
         <asp:Button ID="register" runat="server" Text="Inregistrare" OnClick="register_Click" />
         <asp:Button ID="cont" runat="server" Text="Contul meu" OnClick="my_account" />
+
+        <asp:Button ID="cauta" runat="server" Text="Cauta stiri pe site" OnClick="cauta_Click" />
+
         <br />
         <hr />
 

@@ -82,4 +82,14 @@ public partial class AddNews : System.Web.UI.Page
         //redirectam catre pagina de log in
         Response.Redirect("Index.aspx", true);
     }
+
+    protected void stire_preluata_CheckedChanged(object sender, EventArgs e)
+    {
+        CheckBox chk = sender as CheckBox;
+        if (chk.Checked)
+            Response.Redirect("Index.aspx");
+        else
+            this.continut.Text = "UnChecked";
+
+    }
 }

@@ -75,4 +75,9 @@ public partial class Header : System.Web.UI.MasterPage
         conn.Close();
         return false;
     }
+
+    protected void cauta_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Search.aspx",true);
+    }
 }
