@@ -44,7 +44,7 @@ public partial class NewsPage : System.Web.UI.Page
         {
             titlu.Text = (string)reader[0];
             categorie.Text = (string)reader[1];
-            data.Text = (string)((DateTime)reader[3]).Date.ToString();
+            data.Text = (string)((DateTime)reader[3]).ToString();
             continut.Text = (string)reader[4];
             //imagine = Image.FromFile(path + (string)reader[2]);
             imagine.ImageUrl = ("images\\" + (string)reader[2]).Replace(" ", "");

@@ -9,7 +9,7 @@ public partial class Index : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        copyright.Text = "Site realizat de Adrian Ispas, Grupa 343 " + " © " + DateTime.Now.Year;
+        
     }
 
     protected void last_news_SelectedIndexChanged(object sender, EventArgs e)

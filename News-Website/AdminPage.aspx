@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OtherPage.master" AutoEventWireup="true" CodeFile="AdminPage.aspx.cs" Inherits="AdminPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FirstPage.master" AutoEventWireup="true" CodeFile="AdminPage.aspx.cs" Inherits="AdminPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <br />
+    <center>
     Sunteti logat cu userul
     <asp:Label ID="username" runat="server" Text="Label" style="font-weight: 700"></asp:Label>
 &nbsp;avand rangul de
@@ -11,7 +12,7 @@
     <asp:Button ID="logout" runat="server" Text="Delogare" OnClick="logout_Click" />
     <br />
     <br />
-    Astfel, aveti la dispozitie urmatoarele facilitati:<br />
+    Astfel, aveti la dispozitie urmatoarele facilitati:<br /><br />
     <table>
         <tr>
             <td>
@@ -58,5 +59,6 @@
             
         </tr>
     </table>
+        </center>
 </asp:Content>
 

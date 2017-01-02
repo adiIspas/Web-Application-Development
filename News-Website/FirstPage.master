@@ -4,8 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Home - News</title>
-    <h1>Bun venit pe site-ul nostru! 
+    
+    <title>Acasa - CNN & BBC FMI</title>
+    <h1>
+        <a href="Index.aspx">CNN & BBC FMI - 343 </a>
     </h1>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -31,4 +33,6 @@
     </form>
     
 </body>
+    <hr />
+    <center><asp:Label ID="copyright" runat="server" Text="Site realizat de Adrian Ispas, Grupa 343 © 2017"></asp:Label></center>
 </html>

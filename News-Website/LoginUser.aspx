@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OtherPage.master" AutoEventWireup="true" CodeFile="LoginUser.aspx.cs" Inherits="LoginUser" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FirstPage.master" AutoEventWireup="true" CodeFile="LoginUser.aspx.cs" Inherits="LoginUser" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <title>asd</title>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <table>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
+ <center><table>
          <tr>
             <td style="width: 114px">Nume utilizator</td>
            
@@ -30,5 +30,6 @@
             </td>
         </tr>
     </table> 
+     </center>
 </asp:Content>
 

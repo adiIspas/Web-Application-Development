@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OtherPage.master" AutoEventWireup="true" CodeFile="Utilizatori.aspx.cs" Inherits="Utilizatori" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FirstPage.master" AutoEventWireup="true" CodeFile="Utilizatori.aspx.cs" Inherits="Utilizatori" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    Cauta anumiti utilizatori
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
+    <center>Cauta anumiti utilizatori
     dupa rang
     &nbsp;<br />
     <asp:TextBox ID="rang" runat="server"></asp:TextBox>
@@ -19,5 +19,6 @@
             <asp:ControlParameter ControlID="rang" DefaultValue="adm" Name="rang" PropertyName="Text" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
+        </center>
 </asp:Content>
 

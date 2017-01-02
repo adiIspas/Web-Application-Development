@@ -13,8 +13,8 @@
                 <asp:GridView ID="categorii" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="Cateogrii_Stiri" ForeColor="#333333" GridLines="None" HorizontalAlign="Left" OnSelectedIndexChanged="categorii_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
-                        <asp:BoundField DataField="denumire" HeaderText="denumire" SortExpression="denumire" />
+                        <asp:CommandField ShowSelectButton="True" ButtonType="Button" SelectText="Stiri din ..." />
+                        <asp:BoundField DataField="denumire" HeaderText="Categorii" SortExpression="denumire" />
                     </Columns>
                     <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -34,13 +34,13 @@
             <td>
                 <asp:GridView ID="last_news" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Stiri" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="last_news_SelectedIndexChanged" HorizontalAlign="Right" AutoGenerateColumns="False">
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
-                        <asp:BoundField DataField="titlu" HeaderText="titlu" SortExpression="titlu" />
-                        <asp:BoundField DataField="categorie" HeaderText="categorie" SortExpression="categorie" />
-                        <asp:BoundField DataField="descriere" HeaderText="descriere" SortExpression="descriere" />
-                        <asp:BoundField DataField="imagine" HeaderText="imagine" SortExpression="imagine" />
-                        <asp:BoundField DataField="continut" HeaderText="continut" SortExpression="continut" />
-                        <asp:BoundField DataField="data" HeaderText="data" SortExpression="data" />
+                        <asp:CommandField ShowSelectButton="True" ButtonType="Button" SelectText="Vizualizeaza ..." />
+                        <asp:BoundField DataField="titlu" HeaderText="Titlu Stire" SortExpression="titlu" />
+                        <asp:BoundField DataField="categorie" HeaderText="Categorie" SortExpression="categorie" />
+                        <asp:BoundField DataField="descriere" HeaderText="Scurta descriere" SortExpression="descriere" />
+                        <asp:BoundField DataField="data" HeaderText="Data publicarii" SortExpression="data" />
+                        <asp:ImageField AlternateText="Imaginea nu a fost gasita" dataimageurlformatstring="~\images\{0}" DataImageUrlField="imagine" ControlStyle-Width="100px" ControlStyle-Height="100px">
+                        </asp:ImageField>
                     </Columns>
                     <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
                     <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
@@ -60,16 +60,7 @@
     
     
     
-    <asp:SqlDataSource ID="Stiri" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [titlu], [categorie], [descriere], [imagine], [continut], [data] FROM [Stire] ORDER BY [data] DESC"></asp:SqlDataSource>
-
-   
-
-    
-
-   
-
-    <hr />
-    <center><asp:Label ID="copyright" runat="server" Text="Site realizat de Adrian Ispas © 2017"></asp:Label></center>
+    <asp:SqlDataSource ID="Stiri" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [titlu], [categorie], [descriere], [data], [imagine] FROM [Stire] ORDER BY [data] DESC"></asp:SqlDataSource>
 
      </asp:Content>
 

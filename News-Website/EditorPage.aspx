@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/OtherPage.master" AutoEventWireup="true" CodeFile="EditorPage.aspx.cs" Inherits="EditorPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FirstPage.master" AutoEventWireup="true" CodeFile="EditorPage.aspx.cs" Inherits="EditorPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
     <br />
     Sunteti logat cu userul
     <asp:Label ID="username" runat="server" Text="Label" style="font-weight: 700"></asp:Label>
