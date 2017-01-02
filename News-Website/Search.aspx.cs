@@ -9,7 +9,8 @@ public partial class Search : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        this.Title = "Cauta pe site ... - CNN & BBC FMI";
+        
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

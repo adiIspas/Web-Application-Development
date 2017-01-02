@@ -13,7 +13,7 @@ public partial class LoginUser : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Title = "Logare - News Website";
+        this.Title = "Logare - CNN & BBC FMI";
 
         if (CheckLogin())
             Response.Redirect("Index.aspx", true);
