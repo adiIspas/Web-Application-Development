@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Head.master.cs" Inherits="Head" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+        <a href="Create.aspx">Create</a> | 
+        <a href="Read.aspx">Read</a> | 
+        <a href="Update.aspx">Update</a> |
+        <a href="Delete.aspx">Delete</a> |
+        <a href="AfisareDrumuri.aspx">AfisareDrumuri</a> | 
+        <a href="AfisareLungime.aspx">AfisareLungime</a>
+    <asp:ContentPlaceHolder id="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
