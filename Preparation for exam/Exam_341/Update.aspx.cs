@@ -39,7 +39,6 @@ public partial class Update : System.Web.UI.Page
 
         conn.Open();
 
-       
         string txt = "update Planificari set Cost = @cost,Data = @data where id = @id";
 
         SqlCommand cmd = new SqlCommand(txt, conn);
