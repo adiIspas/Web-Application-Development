@@ -9,6 +9,7 @@
     <a href="Read.aspx">Read</a> |
     <a href="Update.aspx">Update</a> |
     <a href="Delete.aspx">Delete</a> |
+    <a href="CautareVizite.aspx">CautareVizite</a>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

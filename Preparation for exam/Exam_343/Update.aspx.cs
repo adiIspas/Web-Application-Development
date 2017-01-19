@@ -14,11 +14,11 @@ public partial class Update : System.Web.UI.Page
 
     }
 
-    protected void selecteaza_SelectedIndexChanged(object sender, EventArgs e)
+    protected void id_vizita_SelectedIndexChanged(object sender, EventArgs e)
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
-        string txt = "select Detalii, DataEmitere, Valoare, IdBeneficiar from Factura where IdFactura = @id";
+        string txt = "select IP, Data, Browser, IDPagina, Tara from Vizita where IdVizita = @id";
 
         conn.Open();
 
@@ -27,49 +27,58 @@ public partial class Update : System.Web.UI.Page
         cmd.Parameters.Add(new SqlParameter("@id", TypeCode.Int16));
 
 
-        //cmd.Parameters["@id"].Value = id_factura.SelectedValue;
+        cmd.Parameters["@id"].Value = id_vizita.SelectedValue;
 
         SqlDataReader reader = cmd.ExecuteReader();
         if (reader.Read())
         {
-            //detalii.Text = (string)reader[0];
-            //data_emitere.Text = (string)((DateTime)reader[1]).ToString();
-            //valoare.Text = (reader[2]).ToString();
-            //id_beneficiar.SelectedValue = (reader[3]).ToString();
+            ip_vizita.Text = (string)reader[0];
+            data_vizita.Text = (string)(((DateTime)reader[1])).ToString("dd-MM-yyyy");
+            browser_vizita.Text = (string)reader[2];
+            id_pagina.SelectedValue = (reader[3]).ToString();
+            tara_vizita.Text = (string)reader[4];
             conn.Close();
         }
     }
 
-    protected void update_Click(object sender, EventArgs e)
+    protected void actualizeaza_vizita_Click(object sender, EventArgs e)
     {
-        //int id_fact = Convert.ToInt32(id_factura.SelectedValue);
-        //int id_beneficiar_fact = Convert.ToInt32(id_beneficiar.SelectedValue);
-        //string detalii_fact = detalii.Text;
-        //DateTime data_fact = Convert.ToDateTime(data_emitere.Text).Date;
-        //int valoare_fact = Convert.ToInt32(valoare.Text);
+        int id_vizita_pag = Convert.ToInt32(id_vizita.SelectedValue);
+        int id_vizita_pagina = Convert.ToInt32(id_pagina.SelectedValue);
+        string browser_pagina_vizita = browser_vizita.Text;
+        DateTime data_pagina_vizita = Convert.ToDateTime(data_vizita.Text).Date;
+        string ip_vizita_pagina = ip_vizita.Text;
+        string tara_pagina_vizita = tara_vizita.Text;
 
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
         conn.Open();
 
-        string txt = "update Factura set IdBeneficiar = @id_beneficiar, Detalii = @detalii, DataEmitere = @data, Valoare = @valoare where IdFactura = @id";
+        string txt = "update Vizita set IP = @ip_vizita, Data = @data, Browser = @browser,  IDPagina = @id_pagina, Tara = @tara where IdVizita = @id";
 
         SqlCommand cmd = new SqlCommand(txt, conn);
 
         cmd.Parameters.Add(new SqlParameter("@id", TypeCode.Int16));
-        cmd.Parameters.Add(new SqlParameter("@id_beneficiar", TypeCode.Int16));
-        cmd.Parameters.Add(new SqlParameter("@detalii", TypeCode.String));
+        cmd.Parameters.Add(new SqlParameter("@id_pagina", TypeCode.Int16));
+        cmd.Parameters.Add(new SqlParameter("@tara", TypeCode.String));
         cmd.Parameters.Add(new SqlParameter("@data", TypeCode.DateTime));
-        cmd.Parameters.Add(new SqlParameter("@valoare", TypeCode.Int16));
-        //cmd.Parameters["@id"].Value = id_fact;
-        //cmd.Parameters["@id_beneficiar"].Value = id_beneficiar_fact;
-        //cmd.Parameters["@detalii"].Value = detalii_fact;
-        //cmd.Parameters["@data"].Value = data_fact;
-        //cmd.Parameters["@valoare"].Value = valoare_fact;
+        cmd.Parameters.Add(new SqlParameter("@ip_vizita", TypeCode.String));
+        cmd.Parameters.Add(new SqlParameter("@browser", TypeCode.String));
+        cmd.Parameters["@id"].Value = id_vizita_pag;
+        cmd.Parameters["@id_pagina"].Value = id_vizita_pagina;
+        cmd.Parameters["@tara"].Value = tara_pagina_vizita;
+        cmd.Parameters["@data"].Value = data_pagina_vizita;
+        cmd.Parameters["@ip_vizita"].Value = ip_vizita_pagina;
+        cmd.Parameters["@browser"].Value = browser_pagina_vizita;
 
         cmd.ExecuteNonQuery();
 
         conn.Close();
         Response.Redirect("Read.aspx");
+    }
+
+    protected void ip_vizita_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
